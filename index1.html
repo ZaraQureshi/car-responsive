@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <div class="reg" style="text-align: center;">
+        <form>
+            <h2>Register</h2>
+            <input name="email" id="email" onblur="validateEmail(this);" placeholder="Email"><br><br>
+            <input type="text" name="num" placeholder="Contact"><br>
+            <span id="numloc"></span>
+            <br><input type="password" id="password" placeholder="Enter password" onclick=" validateCon()"><br>
+            <br>
+            <input type="Password" id="password2" placeholder="Confirm password">
+            <br><button type="button" id="validate" onClick="validatePass();">Register</button>
+
+            <!-- <label id="l1" style="visibility:hidden;" value="Invalid">Invalid</label><br>
+            <input type="text" name="contact" id="contact" placeholder="Contact">
+            <label id="l2" style="visibility:hidden;" value="Invalid"></label><br>
+            <input type="password" name="password" id="password"placeholder="PAssword"><br><br>
+            <input type="password" name="password2" id="password2"placeholder="Confirm PAssword"><br><br>
+            <button onclick="validate()"  name="submitBtn" value="Register">Register</button><br><br> -->
+        </form>
+    </div>
+    <script >
+        function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+
+function validatePass(){
+    var pass1 = document.getElementById('password').value;
+    var pass2 = document.getElementById('password2').value;
+
+    if (pass1 == pass2)
+    {
+        alert("Passwords Match")
+    }
+
+    else
+    {
+        alert("Passwords Do Not Match")
+    }
+}
+
+function validateCon(){  
+var num=document.getElementsByName("num").value;  
+if (isNaN(num)){  
+  document.getElementById("numloc").innerHTML="Enter Numeric value only";  
+  return false;  
+}else{  
+  return true;  
+  }  
+}  
+    </script>
+</body>
+</html>
